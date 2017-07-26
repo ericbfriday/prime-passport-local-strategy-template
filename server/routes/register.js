@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var Users = require('../models/user');
+var Users = require('../models/user.js');
 var path = require('path');
 
 
@@ -19,8 +19,7 @@ router.post('/', function(req, res, next) {
   */
     var userToSave = {
       username : req.body.username,
-      password : req.body.password,
-      recipes : []
+      password : req.body.password
     };
 
 
