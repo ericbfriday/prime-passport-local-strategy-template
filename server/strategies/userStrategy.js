@@ -25,7 +25,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Does actual work of logging in
-// Called by middleware stack
+// Called by middleware stack in routes/index.js post('/')
 passport.use('local', new localStrategy({
   passReqToCallback: true,
   usernameField: 'username'
