@@ -25,11 +25,12 @@ router.post('/', function(req, res, next) {
 
     Users.create(userToSave, function(err, post) {
          if(err) {
-           // next() here would continue on and route to routes/index.js
-           next(err);
+           console.log('error saving to db: ', err);           
+          res.sendStatus(500);
+          
          } else {
-          // route a new express request for GET '/'
-          res.redirect('/');
+          console.log('created new user in db: ', post);          
+          res.sendStatus(201);
          }
     });
 });

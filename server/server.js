@@ -32,7 +32,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Routes
+/** Routes **/
 app.use('/register', register);
 app.use('/user', user);
 
@@ -41,13 +41,12 @@ app.use('/loginFailure', function(req, res) {
     res.sendStatus(403);
 });
 
-// handles login post request
+// handles login/registration post request
 app.use('/', index);
 
 /** Mongo Connection **/
 var mongoURI = '';
-// process.env.MONGODB_URI will only be defined if you
-// are running on Heroku
+// process.env.MONGODB_URI will only be defined if you are running on Heroku
 if(process.env.MONGODB_URI != undefined) {
     // use the string value of the environment variable
     mongoURI = process.env.MONGODB_URI;
@@ -72,7 +71,7 @@ mongoose.connection.once('open', function(){
 // App Set //
 app.set('port', (process.env.PORT || 5000));
 
-// Listen //
+/** Listen **/
 app.listen(app.get("port"), function(){
    console.log("Listening on port: " + app.get("port"));
 });
