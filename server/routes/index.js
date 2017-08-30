@@ -7,8 +7,8 @@ var path = require('path');
 router.post('/',
     passport.authenticate('local', {
         // request stays within node/express and is routed as a new request
-        successRedirect: '/user',   // goes to routes/user.js
-        failureRedirect: '/'        // goes to get '/' route below
+        successRedirect: '/user',     // goes to routes/user.js
+        failureRedirect: '/loginFailure'   // goes to get '/' route below
     })
 );
 

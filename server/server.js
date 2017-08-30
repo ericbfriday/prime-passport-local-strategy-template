@@ -35,6 +35,13 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
+
+// handles redirect from passport login failure
+app.use('/loginFailure', function(req, res) {
+    res.sendStatus(403);
+});
+
+// handles login post request
 app.use('/', index);
 
 /** Mongo Connection **/
@@ -49,7 +56,7 @@ if(process.env.MONGODB_URI != undefined) {
     mongoURI = 'mongodb://localhost:27017/passport';
 }
 
-mongoose.connect(mongoURI, { useMongoClient: true});
+mongoose.connect(mongoURI, { useMongoClient: true });
 
 mongoose.connection.on('error', function(err){
    if(err) {
