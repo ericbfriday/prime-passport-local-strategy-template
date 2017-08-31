@@ -17,22 +17,22 @@ router.post('/', function(req, res, next) {
   password: {type: String, required: true},
   recipes: {type: Array}
   */
-    var userToSave = {
-      username : req.body.username,
-      password : req.body.password
-    };
+  var userToSave = {
+    username : req.body.username,
+    password : req.body.password
+  };
 
-
-    Users.create(userToSave, function(err, post) {
-         if(err) {
-           console.log('error saving to db: ', err);           
+  // save to database, triggers user model pre-save hook
+  Users.create(userToSave, function(err, post) {
+        if(err) {
+          console.log('error saving to db: ', err);           
           res.sendStatus(500);
-          
-         } else {
+        } else {
           console.log('created new user in db: ', post);          
           res.sendStatus(201);
-         }
-    });
+        }
+  });
+  
 });
 
 
