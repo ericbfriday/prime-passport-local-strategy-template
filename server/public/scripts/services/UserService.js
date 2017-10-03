@@ -13,7 +13,7 @@ myApp.service('UserService', function ($http, $location) {
         console.log('User Data: ', self.userObject.userName);
       } else {
         // user has no session, bounce them back to the login page
-        $location.path("/home");
+        $location.path('/home');
       }
     });
   }
@@ -45,7 +45,7 @@ myApp.service('UserService', function ($http, $location) {
   self.logout = function () {
     $http.get('/user/logout').then(function (response) {
       console.log('logged out');
-      $location.path("/home");
+      $location.path('/home');
     });
   }
 });

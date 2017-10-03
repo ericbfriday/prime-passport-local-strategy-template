@@ -10,7 +10,7 @@ myApp.controller('LoginController', function ($http, $location, UserService) {
   vm.login = function () {
     // leave this in the controller
     if (vm.user.username === '' || vm.user.password === '') {
-      vm.message = "Enter your username and password!";
+      vm.message = 'Enter your username and password!';
     } else {
       UserService.login(vm.user);
     }
@@ -18,7 +18,7 @@ myApp.controller('LoginController', function ($http, $location, UserService) {
 
   vm.registerUser = function () {
     if (vm.user.username === '' || vm.user.password === '') {
-      vm.message = "Choose a username and password!";
+      vm.message = 'Choose a username and password!';
     } else {
       UserService.registerUser(vm.user);
     }
